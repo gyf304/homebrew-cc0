@@ -41,6 +41,7 @@ class Cc0 < Formula
       #!/bin/sh
       $0.bin $*
     EOS
+    chmod 0755, Dir["bin/*"]
     prefix.install Dir["*"]
     chmod 0755, Dir["#{bin}/*"]
     # system "chmod", "+x", "#{bin}/*"
