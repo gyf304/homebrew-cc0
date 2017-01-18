@@ -27,6 +27,21 @@ class Cc0 < Formula
       #!/bin/sh
       #{libexec}/bin/cc0.bin $*
     EOS
+
+    (bin/"coin").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/coin.bin $*
+    EOS
+
+    (bin/"coin-exec").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/coin-exec.bin $*
+    EOS
+
+    (bin/"codex").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/codex.bin $*
+    EOS
   end
 
   test do
