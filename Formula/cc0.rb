@@ -14,8 +14,9 @@ class Cc0 < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # system "cmake", ".", *std_cmake_args
-    system "rm", "-f", "include/zconf.h", "include/zlib.h", "include/pnglibconf.h", "include/pngconf.h", "include/png.h"
-    prefix.install Dir["*"]
+    # system "rm", "-f", "include/zconf.h", "include/zlib.h", "include/pnglibconf.h", "include/pngconf.h", "include/png.h"
+    # system "rm", "-f", "lib/*.a"
+    bin.install Dir["bin/*"]
   end
 
   test do
