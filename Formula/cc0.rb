@@ -17,7 +17,7 @@ class Cc0 < Formula
     # system "rm", "-f", "include/zconf.h", "include/zlib.h", "include/pnglibconf.h", "include/pngconf.h", "include/png.h"
     # system "rm", "-f", "lib/*.a"
     # system "chmod", "755", "#{buildpath}/bin/*"
-    bin.install Dir["bin/*"]
+    opt_prefix.install Dir["*"]
     # system "chmod", "+x", "#{bin}/*"
   end
 
