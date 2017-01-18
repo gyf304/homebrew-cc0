@@ -18,6 +18,7 @@ class Cc0 < Formula
     # system "rm", "-f", "lib/*.a"
     # system "chmod", "+x", Dir["./bin/*"]
     bin.install Dir["bin/*"]
+    system "chmod", "+x", "#{bin}/*"
   end
 
   test do
