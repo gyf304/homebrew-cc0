@@ -13,10 +13,6 @@ class Cc0 < Formula
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
-    # system "cmake", ".", *std_cmake_args
-    # system "rm", "-f", "include/zconf.h", "include/zlib.h", "include/pnglibconf.h", "include/pngconf.h", "include/png.h"
-    # system "rm", "-f", "lib/*.a"
-    # system "chmod", "755", "#{buildpath}/bin/*"
     mkdir "misc"
     mkdir "misc/include"
     mkdir "misc/lib"
@@ -50,8 +46,6 @@ class Cc0 < Formula
       #!/bin/sh
       $0.bin $*
     EOS
-    chmod 0755, Dir["#{bin}/*"]
-    # system "chmod", "+x", "#{bin}/*"
   end
 
   test do
