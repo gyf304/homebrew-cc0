@@ -9,7 +9,7 @@ class Cc0 < Formula
   sha256 "b80050248d06866b9ea02778c0e4455d49a0eaf5d62593e1d8f683267773311b"
 
   depends_on :libpng
-  depends_on :zlib
+  depends_on "zlib"
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
