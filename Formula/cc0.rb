@@ -30,7 +30,7 @@ class Cc0 < Formula
     mv Dir["lib/*.c"], "misc/lib"
     mv "lib/lib", "misc/lib/lib"
     prefix.install Dir["*"]
-    chmod "0755", Dir["#{bin}/*"]
+    chmod 0755, Dir["#{bin}/*"]
     # system "chmod", "+x", "#{bin}/*"
   end
 
