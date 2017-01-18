@@ -29,7 +29,15 @@ class Cc0 < Formula
     mv Dir["lib/*.dylib"], "misc/lib"
     mv Dir["lib/*.c"], "misc/lib"
     mv "lib/lib", "misc/lib/lib"
+    rm "bin/cc0"
+    rm "bin/coin"
+    rm "bin/coin-exec"
+    rm "bin/codex"
     prefix.install Dir["*"]
+    (bin/"cc0").write <<-EOS.undent
+      #!/bin/sh
+      $0.bin $*
+    EOS
     (bin/"coin").write <<-EOS.undent
       #!/bin/sh
       $0.bin $*
