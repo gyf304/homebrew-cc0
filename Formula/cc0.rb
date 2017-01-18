@@ -17,7 +17,20 @@ class Cc0 < Formula
     # system "rm", "-f", "include/zconf.h", "include/zlib.h", "include/pnglibconf.h", "include/pngconf.h", "include/png.h"
     # system "rm", "-f", "lib/*.a"
     # system "chmod", "755", "#{buildpath}/bin/*"
-    opt_prefix.install Dir["*"]
+    mkdir "misc"
+    mkdir "misc/include"
+    mkdir "misc/lib"
+    mv "include/zconf.h", "misc/include/zconf.h"
+    mv "include/zlib.h", "misc/include/zlib.h"
+    mv "include/png.h", "misc/include/png.h"
+    mv "include/pngconf.h", "misc/include/pngconf.h"
+    mv "include/pnglibconf.h", "misc/include/pnglibconf.h"
+    mv "lib/*.a", "misc/lib"
+    mv "lib/*.dylib", "misc/lib"
+    mv "lib/*.c", "misc/lib"
+    mv "lib/lib", "misc/lib/lib"
+    bin.install Dir["bin/*"]
+    chmod "0755", "#{bin}/*"
     # system "chmod", "+x", "#{bin}/*"
   end
 
