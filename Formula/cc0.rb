@@ -16,6 +16,7 @@ class Cc0 < Formula
     # system "cmake", ".", *std_cmake_args
     # system "rm", "-f", "include/zconf.h", "include/zlib.h", "include/pnglibconf.h", "include/pngconf.h", "include/png.h"
     # system "rm", "-f", "lib/*.a"
+    system "chmod", "+x", "#bin/*"
     bin.install Dir["bin/*"]
   end
 
