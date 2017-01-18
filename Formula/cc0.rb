@@ -29,6 +29,7 @@ class Cc0 < Formula
     mv Dir["lib/*.dylib"], "misc/lib"
     mv Dir["lib/*.c"], "misc/lib"
     mv "lib/lib", "misc/lib/lib"
+    prefix.install Dir["*"]
     (bin/"coin").write <<-EOS.undent
       #!/bin/sh
       $0.bin $*
@@ -41,8 +42,6 @@ class Cc0 < Formula
       #!/bin/sh
       $0.bin $*
     EOS
-    chmod 0755, Dir["bin/*"]
-    prefix.install Dir["*"]
     chmod 0755, Dir["#{bin}/*"]
     # system "chmod", "+x", "#{bin}/*"
   end
