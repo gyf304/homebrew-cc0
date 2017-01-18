@@ -25,9 +25,9 @@ class Cc0 < Formula
     mv "include/png.h", "misc/include/png.h"
     mv "include/pngconf.h", "misc/include/pngconf.h"
     mv "include/pnglibconf.h", "misc/include/pnglibconf.h"
-    mv "lib/*.a", "misc/lib"
-    mv "lib/*.dylib", "misc/lib"
-    mv "lib/*.c", "misc/lib"
+    mv Dir["lib/*.a"], "misc/lib"
+    mv Dir["lib/*.dylib"], "misc/lib"
+    mv Dir["lib/*.c"], "misc/lib"
     mv "lib/lib", "misc/lib/lib"
     prefix.install Dir["*"]
     chmod "0755", "#{bin}/*"
