@@ -8,7 +8,7 @@ class Cc0 < Formula
   url "http://c0.typesafety.net/dist/cc0-v0590-osx10.8.5-bin.tgz"
   sha256 "b80050248d06866b9ea02778c0e4455d49a0eaf5d62593e1d8f683267773311b"
 
-  depends_on :libpng
+  depends_on "libpng"
   depends_on "zlib"
 
   def install
