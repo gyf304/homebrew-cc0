@@ -19,10 +19,14 @@ class Cc0 < Formula
     rm "bin/codex"
     libexec.install %w[bin include runtime lib c0-mode]
     doc.install Dir["doc/*"]
-    bin.install_symlink libexec/"bin/cc0.bin" => "cc0"
-    bin.install_symlink libexec/"bin/coin.bin" => "coin"
-    bin.install_symlink libexec/"bin/coin-exec.bin" => "coin-exec"
-    bin.install_symlink libexec/"bin/codex.bin" => "codex"
+    # bin.install_symlink libexec/"bin/cc0.bin" => "cc0"
+    # bin.install_symlink libexec/"bin/coin.bin" => "coin"
+    # bin.install_symlink libexec/"bin/coin-exec.bin" => "coin-exec"
+    # bin.install_symlink libexec/"bin/codex.bin" => "codex"
+    (bin/"cc0").write <<-EOS.undent
+      #!/bin/sh
+      #{libexec}/bin/cc0.bin $*
+    EOS
   end
 
   test do
