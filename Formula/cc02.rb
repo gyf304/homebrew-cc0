@@ -13,16 +13,39 @@ class Cc0 < Formula
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
+    mkdir "misc"
+    mkdir "misc/include"
+    mkdir "misc/lib"
+    mv "include/zconf.h", "misc/include/zconf.h"
+    mv "include/zlib.h", "misc/include/zlib.h"
+    mv "include/png.h", "misc/include/png.h"
+    mv "include/pngconf.h", "misc/include/pngconf.h"
+    mv "include/pnglibconf.h", "misc/include/pnglibconf.h"
+    mv Dir["lib/*.a"], "misc/lib"
+    # mv Dir["lib/*.dylib"], "misc/lib"
+    mv Dir["lib/*.c"], "misc/lib"
+    # mv "lib/lib", "misc/lib/lib"
     rm "bin/cc0"
     rm "bin/coin"
     rm "bin/coin-exec"
     rm "bin/codex"
-    libexec.install %w[bin include runtime lib c0-mode]
-    doc.install Dir["doc/*"]
-    bin.install_symlink libexec/"bin/cc0.bin" => "cc0"
-    bin.install_symlink libexec/"bin/coin.bin" => "coin"
-    bin.install_symlink libexec/"bin/coin-exec.bin" => "coin-exec"
-    bin.install_symlink libexec/"bin/codex.bin" => "codex"
+    prefix.install Dir["*"]
+    (bin/"cc0").write <<-EOS.undent
+      #!/bin/sh
+      $0.bin $*
+    EOS
+    (bin/"coin").write <<-EOS.undent
+      #!/bin/sh
+      $0.bin $*
+    EOS
+    (bin/"coin-exec").write <<-EOS.undent
+      #!/bin/sh
+      $0.bin $*
+    EOS
+    (bin/"codex").write <<-EOS.undent
+      #!/bin/sh
+      $0.bin $*
+    EOS
   end
 
   test do
